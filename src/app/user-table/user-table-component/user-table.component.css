@@ -1,0 +1,25 @@
+.highlight {
+  background-color: red;
+}
+
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+td, th {
+  padding: 8px;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: bold;
+}
+
+.divando {
+    background-color: #f2f2f2;
+}

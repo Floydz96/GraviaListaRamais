@@ -1,0 +1,76 @@
+<div style="margin-right: auto; margin-left: auto;">
+  <button class="btn btn-primary" (click)="adicionarUsuario = true">Adicionar novo registro</button>
+  <button class="btn btn-success text-dark" (click)="startAutoColorSwitch()">Rainbow Mode <span [innerText]="rainbow ? 'on' : 'off'"></span></button>
+</div>
+<div *ngIf="!adicionarUsuario; else inputFields">
+  <table class="table table-striped table-bordered text-center w-100">
+    <thead class="thead-dark">
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th>Idade</th>
+      <th>Cpf</th>
+      <th>Cor Favorita</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios" (click)="onClick($event.target.parentNode.cells)"
+        (mouseover)="setMouseOver(usuario.id)" (mouseout)="setMouseOver(-1)"
+        [style.background-color]="getColorOver(usuario.id)">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.sobrenome}}</td>
+        <td>{{usuario.idade}}</td>
+        <td>{{usuario.cpf}}</td> 
+        <td>{{usuario.corfav}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #inputFields>
+  <div style="text-align: center; margin-left: auto; margin-right: auto; width: 30%;">
+    <div class="card text-white bg-dark mb-3">
+      <div class="card-body">
+
+        <label class="float-left" for="nomeUsuario">Nome Usuario</label>
+        <div class="input-group mb-3">
+          <input id="nomeUsuario" placeholder="Nome usuário" class="form-control" type="text" [value]="novoUsuario.nome"
+            (keyup)="novoUsuario.nome = $event.target.value" />
+        </div>
+
+        <label class="float-left" for="sobrenomeUsuario">Sobrenome Usuario</label>
+        <div class="input-group mb-3">
+          <input id="sobrenomeUsuario" class="form-control" type="text" [value]="novoUsuario.sobrenome"
+            (keyup)="novoUsuario.sobrenome = $event.target.value" />
+        </div>
+
+        <label class="float-left" for="idadeUsuario">Idade</label>
+        <div class="input-group mb-3">
+          <input id="idadeUsuario" class="form-control" type="text" [value]="novoUsuario.idade"
+            (keyup)="novoUsuario.idade = $event.target.value" />
+        </div>
+
+        <label class="float-left" for="cpfUsuario">Cpf: </label>
+        <div class="input-group mb-3">
+          <input id="cpfUsuario" class="form-control" type="text" [value]="novoUsuario.cpf"
+            (keyup)="novoUsuario.cpf = $event.target.value" />
+        </div>
+
+        <label class="float-left" for="corfavUsuario">Cor Favorita</label>
+        <div class="input-group mb-3">
+          <input id="corfavUsuario" class="form-control" type="text" [value]="novoUsuario.corfav"
+            (keyup)="novoUsuario.corfav = $event.target.value" />
+        </div>
+
+        <div *ngIf="adicionarUsuario">
+          <button class="btn btn-danger" (click)="adicionarUsuario = false">Cancelar</button>
+          <button class="btn btn-success" (click)="adicionaNovoUsuario()">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<!-- <input type="text" [value]="nome" (keyup)="nome = $event.target.value" /> -->
+<br>
+<div class=".divando" [hidden]='usuarior == null' *ngIf='usuarior != null'>
+  <!-- <app-exibe-usuario [nome]='usuarior.nome' [idade]='usuarior.idade' [cpf]='usuarior.cpf'></app-exibe-usuario> -->
+</div>

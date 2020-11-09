@@ -1,0 +1,36 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="font-family: 'Montserrat';">
+  <mat-icon class="d-inline-block align-top text-white mb-1" style="font-size: 32px;">book</mat-icon>
+  <a class="navbar-brand p-3" href="/" style="font-size: 32px;">
+    {{title}}
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0">
+      <div class="input-group mr-4 ml-2">
+        <label for="select1" class="text-white mr-2" style="font-size: 32px; font-family: Montserrat;"> Filial </label>
+        <select class="form-control" id="select1" (change)="onSelectChange($event.target.value)">
+          <option value="0" selected style="font-weight: bold;">Todas</option>
+          <option value="1">Filial 1</option>
+          <option value="2">Filial 2</option>
+          <option value="3">Filial 3</option>
+          <option value="4">Filial 4</option>
+          <option value="5">Filial 5</option>
+          <option value="7">Filial 7</option>
+          <option value="8">Filial 8</option>
+          <option value="10">Filial 10</option>
+          <option value="12">Filial 12</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="basic-addon1" class="text-white mr-2" style="font-size: 32px; font-family: Montserrat;"> Nome </label>
+        <div class="input-group-prepend">
+          <span class="input-group-text pt-0 pb-0" id="basic-addon1">
+            <mat-icon>search</mat-icon>
+          </span>
+        </div>
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" (keyup)="onInputKeyup($event.target.value)">
+      </div>
+    </form>
+  </div>
+  <span class="d-flex justify-content-end text-white" style="font-family: 'Montserrat'; font-size: 16px;">{{version}}</span>
+</nav>
